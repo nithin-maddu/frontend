@@ -1,0 +1,267 @@
+/* Global & Body */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(270deg, #ff7e5f, #feb47b, #86a8e7, #7f7fd5);
+  background-size: 800% 800%;
+  animation: GradientMove 15s ease infinite;
+  color: #333;
+  overflow-y: auto; /* changed from scroll to auto */
+}
+
+@keyframes GradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Navbar - fixed top */
+nav, .navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+   background: linear-gradient(45deg, yellow, skyblue);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  z-index: 1000;
+  font-weight: 600;
+  color: #222;
+}
+
+/* Footer - fixed bottom */
+footer, .footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+ background: linear-gradient(45deg, orange, skyblue);
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: #555;
+  z-index: 1000;
+}
+
+/* Main content area between navbar & footer */
+.home-container {
+  padding: 80px 20px 70px 20px; /* space for fixed nav & footer */
+  max-width: 1200px;
+  margin: 0 auto;
+background: linear-gradient(45deg, gray, lightpink);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  min-height: calc(100vh - 130px); /* full height minus nav + footer */
+  overflow-y: auto;
+}
+
+/* Category filter buttons */
+.category-button {
+  background: linear-gradient(45deg, #ff6a00, #ee0979);
+  border: none;
+  color: white;
+  padding: 10px 18px;
+  margin-right: 12px;
+  margin-bottom: 15px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(238,9,121,0.4);
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+.category-button:hover {
+  box-shadow: 0 6px 20px rgba(238,9,121,0.7);
+  transform: translateY(-2px);
+}
+
+/* Product grid */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
+  gap: 25px;
+}
+
+/* Product card */
+.product-card {
+  background:lightgoldenrodyellow;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.product-card h4 {
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+  min-height: 54px;
+}
+
+.product-card img {
+  height: 180px;
+  object-fit: contain;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  background-color:white;
+}
+
+.product-card p {
+  margin: 6px 0;
+  font-size: 14px;
+  color: #444;
+  flex-grow: 1;
+}
+
+/* Add to Cart button */
+.add-button {
+  margin-top: auto;
+  background: linear-gradient(45deg, #11998e, #38ef7d);
+  border: none;
+  color: white;
+  padding: 12px 0;
+  font-weight: 700;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(56,239,125,0.6);
+  transition: all 0.3s ease;
+}
+
+.add-button:hover {
+  box-shadow: 0 9px 30px rgba(56,239,125,0.9);
+  transform: translateY(-3px);
+}
+
+/* Logout button style - using class instead of attribute selector */
+.logout-button {
+  background: #e94e77;
+  box-shadow: 0 6px 15px rgba(233, 78, 119, 0.6);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.logout-button:hover {
+  box-shadow: 0 9px 28px rgba(233, 78, 119, 0.9);
+  transform: translateY(-3px);
+}
+
+/* Login form styling - center the form nicely */
+form {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 40px 35px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  width: 360px;
+  margin: 80px auto; /* below navbar */
+  color: #333;
+  font-weight: 500;
+}
+
+/* Responsive form width for smaller screens */
+@media (max-width: 400px) {
+  form {
+    width: 90%;
+    margin: 80px auto;
+  }
+}
+
+/* Login headings */
+form h2 {
+  margin-bottom: 25px;
+  font-weight: 700;
+  color: #222;
+  text-align: center;
+}
+
+/* Inputs */
+input {
+  width: 90%;
+  padding: 14px 18px;
+  margin-bottom: 18px;
+  border-radius: 8px;
+  border: 1.8px solid #f0e8e8;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+input:focus {
+  border-color: #ee0979;
+  outline: none;
+  box-shadow: 0 0 8px rgba(238,9,121,0.4);
+}
+
+/* Buttons */
+button {
+  width: 100%;
+  padding: 14px 0;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Submit login button */
+button[type="submit"] {
+  background: linear-gradient(45deg, #ff6a00, #ee0979);
+  color: white;
+  box-shadow: 0 6px 18px rgba(238,9,121,0.6);
+}
+
+button[type="submit"]:hover {
+  background: linear-gradient(45deg, #ee0979, #ff6a00);
+  box-shadow: 0 9px 30px rgba(238,9,121,0.9);
+  transform: translateY(-3px);
+}
+
+/* Google login button */
+button[type="button"] {
+  background: linear-gradient(45deg, #11998e, #38ef7d);
+  color: white;
+  box-shadow: 0 6px 18px rgba(56,239,125,0.6);
+}
+
+button[type="button"]:hover {
+  background: linear-gradient(45deg, #38ef7d, #11998e);
+  box-shadow: 0 9px 30px rgba(56,239,125,0.9);
+  transform: translateY(-3px);
+}
+
+/* Signup link */
+p {
+  font-size: 14px;
+  color: #555;
+  text-align: center;
+}
+
+p a {
+  color: #ee0979;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+p a:hover {
+  text-decoration: underline;
+}

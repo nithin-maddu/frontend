@@ -11,7 +11,7 @@ const Home = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('https://fakestoreapi.com/products')
+    fetch('https://backend-fjot.onrender.com')
       .then(res => res.json())
       .then(data => {
         setProducts(data);

@@ -10,14 +10,17 @@ const Home = () => {
   const [cart, setCart] = useState([]);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    fetch('https://backend-fjot.onrender.com/api/products')
-      .then(res => res.json())
-      .then(data => {
-        setProducts(data);
-        setFiltered(data);
-      });
-  }, []);
+useEffect(() => {
+  fetch('https://fakestoreapi.com/products')
+    .then(res => res.json())
+    .then(data => {
+      const productsArray = Array.isArray(data) ? data : data.products; // <-- adjust here
+      setProducts(productsArray);
+      setFiltered(productsArray);
+    })
+    .catch(err => console.error('Failed to fetch products:', err));
+}, []);
+
 
   const handleAddToCart = (product) => {
     setCart(prev => [...prev, product]);

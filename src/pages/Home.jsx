@@ -11,7 +11,7 @@ const Home = () => {
   const navigate = useNavigate();
 
 useEffect(() => {
-  fetch('https://fakestoreapi.com/products')
+  fetch('https://backend-fjot.onrender.com/api/products')
     .then(res => res.json())
     .then(data => {
       const productsArray = Array.isArray(data) ? data : data.products; // <-- adjust here

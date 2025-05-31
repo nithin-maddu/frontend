@@ -2,7 +2,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Cart from './pages/Cart';
-import Signup from './pages/signup';
+import Signup from './pages/Signup';
 import Login from './pages/Login';
 
 const App = () => {
